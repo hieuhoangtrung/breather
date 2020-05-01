@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:breather/theme/colors/light_colors.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  await DotEnv().load('.env');
+  runApp(MyApp());
+} 
+
+// use DotEnv: DotEnv().env['VAR_NAME'];
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
