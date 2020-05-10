@@ -7,22 +7,27 @@ class TopContainer extends StatelessWidget {
   final Widget child;
   final EdgeInsets padding;
 
-  TopContainer({ this.height, this.width, this.child, this.padding });
+  TopContainer({this.height, this.width, this.child, this.padding});
 
   @override
   Widget build(BuildContext context) {
-
     const radius = 40.0;
 
     return Container(
-      padding: padding != null ? padding : EdgeInsets.symmetric(horizontal: 20.0),
+      padding:
+          padding != null ? padding : EdgeInsets.symmetric(horizontal: 20.0),
       decoration: BoxDecoration(
-        color: LightColors.kDarkYellow,
-        borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(radius),
-          bottomLeft: Radius.circular(radius),
-        )
-      ),
+          // color: LightColors.kDarkYellow,
+          gradient: LinearGradient(
+            colors: [LightColors.kGreen, LightColors.kSeaGreen],
+            stops: [0.01, 0.99],
+            begin: Alignment(-1.00, 0.00),
+            end: Alignment(1.00, 0.00),
+          ),
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(radius),
+            bottomLeft: Radius.circular(radius),
+          )),
       height: height,
       width: width,
       child: child,
