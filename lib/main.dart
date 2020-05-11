@@ -5,12 +5,12 @@ import 'package:breather/screens/home_page.dart';
 
 Future<void> main() async {
   await DotEnv().load('.env');
-  runApp(MyApp());
+  runApp(BreatherApp());
 } 
 
 // use DotEnv: DotEnv().env['VAR_NAME'];
 
-class MyApp extends StatelessWidget {
+class BreatherApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'RobotoSlab'
         )
       ),
-      home: MyHomePage(title: 'Breather'),
+      home: HomePage(title: 'Breather'),
       debugShowCheckedModeBanner: false,
     );
   }

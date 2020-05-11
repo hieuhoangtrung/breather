@@ -6,22 +6,24 @@ import 'package:flutter/material.dart';
 import 'package:breather/theme/colors/light_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:lottie/lottie.dart';
+import 'package:percent_indicator/percent_indicator.dart';
+import 'package:breather/screens/calendar_page.dart';
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _counter = 0;
   UserProfile user = UserProfile(
-    id: 1,
-    fullName: 'Peter Hoang',
-    profileImageUrl: 'assets/images/avatar.png',
-  );
+      id: 1,
+      fullName: 'Peter',
+      profileImageUrl: 'assets/images/avatar.png',
+      job: 'Student');
 
   List<Task> tasks = <Task>[
     Task(
@@ -102,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    String welcomeText = "Hi 👋 \n" + user.fullName + "!";
+    String welcomeText = "Hi 👋 " + user.fullName + "!";
 
     return Scaffold(
       backgroundColor: LightColors.kPaleGray,
@@ -116,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             TopContainer(
-              height: 200,
+              height: 225,
               width: width,
               padding:
                   EdgeInsets.only(top: 40.0, left: 20, right: 20, bottom: 20),
@@ -127,8 +129,18 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Icon(Icons.menu, color: LightColors.kWhite, size: 30.0),
-                      Icon(Icons.calendar_today,
-                          color: LightColors.kWhite, size: 25.0)
+                       GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CalendarPage()),
+                                  );
+                                },
+                                child: Icon(Icons.calendar_today,
+                          color: LightColors.kWhite, size: 25.0),
+                              ),
+                      
                     ],
                   ),
                   Padding(
@@ -138,11 +150,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        CircleAvatar(
-                          backgroundColor: LightColors.kBlue,
-                          radius: 35.0,
-                          backgroundImage: AssetImage(user.profileImageUrl),
-                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
@@ -152,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     fontSize: 26.0,
-                                    color: Color(0xffffffff),
+                                    color: LightColors.kWhite,
                                     fontWeight: FontWeight.w800),
                               ),
                             ),
@@ -163,12 +170,26 @@ class _MyHomePageState extends State<MyHomePage> {
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
                                       fontSize: 16.0,
-                                      color: Colors.black45,
+                                      color: LightColors.kWhite,
                                       fontWeight: FontWeight.w400),
                                 ),
                               ),
                           ],
-                        )
+                        ),
+                        CircularPercentIndicator(
+                            animationDuration: 1000,
+                            radius: 90.0,
+                            lineWidth: 5.0,
+                            animation: true,
+                            percent: 0.60,
+                            circularStrokeCap: CircularStrokeCap.round,
+                            progressColor: LightColors.kYellowishOrange,
+                            backgroundColor: LightColors.kSeaGreen,
+                            center: CircleAvatar(
+                              backgroundColor: LightColors.kBlue,
+                              radius: 35.0,
+                              backgroundImage: AssetImage(user.profileImageUrl),
+                            ))
                       ],
                     ),
                   )
@@ -185,7 +206,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[subheading("Today's Tasks")],
                   ),
-                  SizedBox(height: 15.0),
                 ],
               ),
             ),
@@ -210,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Add new Task',
         label: Text("Start"),
         icon: Icon(Icons.play_circle_outline),
-        backgroundColor: Color(0xfffbae17),
+        backgroundColor: LightColors.kYellowishOrange,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

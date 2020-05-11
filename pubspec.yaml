@@ -13,6 +13,7 @@ dependencies:
   flutter_dotenv: ^2.1.0
   lottie: ^0.3.3
   google_nav_bar: ^2.2.0
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_native_splash: ^0.1.9
