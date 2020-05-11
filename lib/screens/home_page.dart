@@ -101,6 +101,14 @@ class _HomePageState extends State<HomePage> {
   //   );
   // }
 
+  static CircleAvatar calendarIcon() {
+    return CircleAvatar(
+      radius: 25.0,
+      backgroundColor: Color(0xff31d8bb),
+      child: Image.asset('assets/images/calendar_icon@3x.png', width: 25, height: 25)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -118,7 +126,7 @@ class _HomePageState extends State<HomePage> {
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             TopContainer(
-              height: 225,
+              height: 250,
               width: width,
               padding:
                   EdgeInsets.only(top: 40.0, left: 20, right: 20, bottom: 20),
@@ -129,18 +137,16 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Icon(Icons.menu, color: LightColors.kWhite, size: 30.0),
-                       GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => CalendarPage()),
-                                  );
-                                },
-                                child: Icon(Icons.calendar_today,
-                          color: LightColors.kWhite, size: 25.0),
-                              ),
-                      
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CalendarPage()),
+                          );
+                        },
+                        child: calendarIcon(),
+                      ),
                     ],
                   ),
                   Padding(

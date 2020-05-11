@@ -18,5 +18,6 @@ class LightColors  {
   static const Color kSeaGreen = Color(0xFF00C2B1);
   static const Color kPaleGray = Color(0xFFF5F7FB);
   static const Color kDarkMint = Color(0xff4ec670);
-  static const Color kYellowishOrange = Color(0xfffbae17); 
+  static const Color kYellowishOrange = Color(0xfffbae17);
+  static const Color kPeach = Color(0xfff7be7c);
 }

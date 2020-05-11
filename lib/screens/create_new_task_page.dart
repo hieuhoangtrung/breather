@@ -16,6 +16,7 @@ class CreateNewTaskPage extends StatelessWidget {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -43,7 +44,9 @@ class CreateNewTaskPage extends StatelessWidget {
                       Text(
                         'Create new task',
                         style: TextStyle(
-                            fontSize: 30.0, fontWeight: FontWeight.w700, color: LightColors.kWhite),
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w700,
+                            color: LightColors.kWhite),
                       ),
                     ],
                   ),
@@ -164,8 +167,23 @@ class CreateNewTaskPage extends StatelessWidget {
                     margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
                     width: width - 40,
                     decoration: BoxDecoration(
-                      color: LightColors.kBlue,
                       borderRadius: BorderRadius.circular(30),
+                      gradient: LinearGradient(
+                        colors: [
+                          LightColors.kPeach,
+                          LightColors.kYellowishOrange
+                        ],
+                        stops: [0.006, 1],
+                        begin: Alignment(-0.94, -0.34),
+                        end: Alignment(0.94, 0.34),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Color(0x4d8484ce),
+                            offset: Offset(7, 0),
+                            blurRadius: 15,
+                            spreadRadius: 0)
+                      ],
                     ),
                   ),
                 ],
