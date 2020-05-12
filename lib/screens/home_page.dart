@@ -28,33 +28,33 @@ class _HomePageState extends State<HomePage> {
   List<Task> tasks = <Task>[
     Task(
         id: 1,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
-        loadingPercent: 0.2),
+        name: "Create Presentation for Weekly Progress",
+        note: "30 minutes progress",
+        loadingPercent: 0.25),
     Task(
         id: 2,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
+        name: "Work on Mid-fi Prototype",
+        note: "1 hour progress",
         loadingPercent: 0.5),
     Task(
         id: 3,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
+        name: "Write down lecture notes and review",
+        note: "1 hour progress",
         loadingPercent: 0.3),
     Task(
         id: 4,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
+        name: "Assignment 2 Physical Prototyping",
+        note: "30 minutes progress",
         loadingPercent: 0.7),
     Task(
         id: 5,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
+        name: "Create Presentation for Weekly Progress",
+        note: "30 minutes progress",
         loadingPercent: 0.4),
     Task(
         id: 6,
-        title: "Create Presentation for Weekly Progress",
-        subtitle: "30 minutes progress",
+        name: "Create Presentation for Weekly Progress",
+        note: "30 minutes progress",
         loadingPercent: 0.7),
   ];
 
@@ -63,8 +63,8 @@ class _HomePageState extends State<HomePage> {
       // _counter++;
       tasks.add(Task(
           id: 1,
-          title: "New Tasks",
-          subtitle: "30 minutes progress",
+          name: "New Tasks",
+          note: "30 minutes progress",
           loadingPercent: 0));
     });
     debugPrint(user.profileImageUrl);
@@ -221,8 +221,8 @@ class _HomePageState extends State<HomePage> {
                     itemCount: tasks.length,
                     itemBuilder: (BuildContext context, int index) {
                       return TaskContainer(
-                        title: tasks[index].title,
-                        subtitle: tasks[index].subtitle,
+                        title: tasks[index].name,
+                        subtitle: tasks[index].note,
                         loadingPercent: tasks[index].loadingPercent,
                       );
                     })),
@@ -231,10 +231,12 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+      floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _incrementCounter,
         tooltip: 'Add new Task',
-        label: Text("Start"),
+        label: Text("Start Studying"),
         icon: Icon(Icons.play_circle_outline),
         backgroundColor: LightColors.kYellowishOrange,
       ), // This trailing comma makes auto-formatting nicer for build methods.

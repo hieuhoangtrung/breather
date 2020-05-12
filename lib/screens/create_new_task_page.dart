@@ -55,14 +55,14 @@ class CreateNewTaskPage extends StatelessWidget {
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      MyTextField(label: 'Title'),
+                      MyTextField(label: 'Name'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Expanded(
                             child: MyTextField(
-                              label: 'Date',
+                              label: 'Due Date',
                               icon: downwardIcon,
                             ),
                           ),
@@ -84,109 +84,114 @@ class CreateNewTaskPage extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                           child: MyTextField(
-                        label: 'Start Time',
+                        label: 'Progress Time',
                         icon: downwardIcon,
                       )),
-                      SizedBox(width: 40),
-                      Expanded(
-                        child: MyTextField(
-                          label: 'End Time',
-                          icon: downwardIcon,
-                        ),
-                      ),
+                      // SizedBox(width: 40),
+                      // Expanded(
+                      //   child: MyTextField(
+                      //     label: 'End Time',
+                      //     icon: downwardIcon,
+                      //   ),
+                      // ),
                     ],
                   ),
                   SizedBox(height: 20),
                   MyTextField(
-                    label: 'Description',
+                    label: 'Notes',
                     minLines: 3,
                     maxLines: 3,
                   ),
                   SizedBox(height: 20),
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Category',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black54,
-                          ),
-                        ),
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.start,
-                          //direction: Axis.vertical,
-                          alignment: WrapAlignment.start,
-                          verticalDirection: VerticalDirection.down,
-                          runSpacing: 0,
-                          //textDirection: TextDirection.rtl,
-                          spacing: 10.0,
-                          children: <Widget>[
-                            Chip(
-                              label: Text("SPORT APP"),
-                              backgroundColor: LightColors.kRed,
-                              labelStyle: TextStyle(color: Colors.white),
-                            ),
-                            Chip(
-                              label: Text("MEDICAL APP"),
-                            ),
-                            Chip(
-                              label: Text("RENT APP"),
-                            ),
-                            Chip(
-                              label: Text("NOTES"),
-                            ),
-                            Chip(
-                              label: Text("GAMING PLATFORM APP"),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
+                  // Container(
+                  //   alignment: Alignment.topLeft,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: <Widget>[
+                  //       Text(
+                  //         'Category',
+                  //         style: TextStyle(
+                  //           fontSize: 18,
+                  //           color: Colors.black54,
+                  //         ),
+                  //       ),
+                  //       Wrap(
+                  //         crossAxisAlignment: WrapCrossAlignment.start,
+                  //         //direction: Axis.vertical,
+                  //         alignment: WrapAlignment.start,
+                  //         verticalDirection: VerticalDirection.down,
+                  //         runSpacing: 0,
+                  //         //textDirection: TextDirection.rtl,
+                  //         spacing: 10.0,
+                  //         children: <Widget>[
+                  //           Chip(
+                  //             label: Text("SPORT APP"),
+                  //             backgroundColor: LightColors.kRed,
+                  //             labelStyle: TextStyle(color: Colors.white),
+                  //           ),
+                  //           Chip(
+                  //             label: Text("MEDICAL APP"),
+                  //           ),
+                  //           Chip(
+                  //             label: Text("RENT APP"),
+                  //           ),
+                  //           Chip(
+                  //             label: Text("NOTES"),
+                  //           ),
+                  //           Chip(
+                  //             label: Text("GAMING PLATFORM APP"),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // )
                 ],
               ),
             )),
-            Container(
-              height: 80,
-              width: width,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      'Create Task',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18),
-                    ),
-                    alignment: Alignment.center,
-                    margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
-                    width: width - 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      gradient: LinearGradient(
-                        colors: [
-                          LightColors.kPeach,
-                          LightColors.kYellowishOrange
-                        ],
-                        stops: [0.006, 1],
-                        begin: Alignment(-0.94, -0.34),
-                        end: Alignment(0.94, 0.34),
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context, 'show');
+              },
+              child: Container(
+                height: 80,
+                width: width,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Container(
+                      child: Text(
+                        'Create Task',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18),
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0x4d8484ce),
-                            offset: Offset(7, 0),
-                            blurRadius: 15,
-                            spreadRadius: 0)
-                      ],
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                      width: width - 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        gradient: LinearGradient(
+                          colors: [
+                            LightColors.kPeach,
+                            LightColors.kYellowishOrange
+                          ],
+                          stops: [0.006, 1],
+                          begin: Alignment(-0.94, -0.34),
+                          end: Alignment(0.94, 0.34),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0x4d8484ce),
+                              offset: Offset(7, 0),
+                              blurRadius: 15,
+                              spreadRadius: 0)
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
