@@ -16,7 +16,7 @@ class TaskContainer extends StatelessWidget {
      double c_width = MediaQuery.of(context).size.width*0.8;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10.0),
-      padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
       width: c_width,
       child:
           Row(crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[

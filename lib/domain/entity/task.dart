@@ -1,10 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 
+part 'task.g.dart';
+
 @JsonSerializable()
 class Task {
   final int id;
   @JsonKey(name: 'goal_id')
   final int goalId;
+  @JsonKey(nullable: false)
   final String name;
   final String note;
   final int duration;
@@ -16,7 +19,7 @@ class Task {
   @JsonKey(name: 'due_date')
   final DateTime dueDate;
   @JsonKey(name: 'is_completed')
-  final bool isCompleted;
+  final int isCompleted;
 
   Task(
       {this.id,
@@ -38,6 +41,7 @@ class Task {
       int duration,
       int workingTime,
       double loadingPercent,
+      int isCompleted,
       DateTime dueDate}) {
     return Task(
         id: id ?? this.id,
@@ -47,6 +51,10 @@ class Task {
         duration: duration ?? this.duration,
         workingTime: workingTime ?? this.workingTime,
         loadingPercent: loadingPercent ?? this.loadingPercent,
+        isCompleted: isCompleted ?? this.isCompleted,
         dueDate: dueDate ?? this.dueDate);
   }
+
+    factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
+    Map<String, dynamic> toJson() => _$TaskToJson(this);
 }

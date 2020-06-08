@@ -1,10 +1,9 @@
 import 'package:breather/widgets/top_container.dart';
 import 'package:flutter/material.dart';
-import 'package:breather/dates_list.dart';
+import 'package:breather/utils/dates_list.dart';
 import 'package:breather/theme/colors/light_colors.dart';
 import 'package:breather/widgets/calendar_dates.dart';
 import 'package:breather/widgets/calendar_task_container.dart';
-import 'package:breather/screens/create_new_task_page.dart';
 import 'package:breather/widgets/back_button.dart';
 import 'package:intl/intl.dart';
 
@@ -22,11 +21,11 @@ class CalendarPage extends StatelessWidget {
     );
   }
 
-   _navigateAndDisplaySelection(BuildContext context) async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CreateNewTaskPage()),
-    );
+  //  _navigateAndDisplaySelection(BuildContext context) async {
+  //   final result = await Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => CreateNewTaskPage()),
+  //   );
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ class CalendarPage extends StatelessWidget {
               MyBackButton(),
               SizedBox(height: 30.0),
               Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       'Today',
@@ -52,37 +51,37 @@ class CalendarPage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: LightColors.kWhite),
                     ),
-                    Container(
-                      height: 40.0,
-                      width: 120,
-                      decoration: BoxDecoration(
-                        color: LightColors.kGreen,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: FlatButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CreateNewTaskPage(),
-                            ),
-                          );
-                        },
-                        child: Center(
-                          child: Text(
-                            'Add task',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Container(
+                    //   height: 40.0,
+                    //   width: 120,
+                    //   decoration: BoxDecoration(
+                    //     color: LightColors.kGreen,
+                    //     borderRadius: BorderRadius.circular(30),
+                    //   ),
+                    //   child: FlatButton(
+                    //     onPressed: () {
+                    //       Navigator.push(
+                    //         context,
+                    //         MaterialPageRoute(
+                    //           builder: (context) => CreateNewTaskPage(),
+                    //         ),
+                    //       );
+                    //     },
+                    //     child: Center(
+                    //       child: Text(
+                    //         'Add task',
+                    //         style: TextStyle(
+                    //             color: Colors.white,
+                    //             fontWeight: FontWeight.w700,
+                    //             fontSize: 16),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ]),
               SizedBox(height: 10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     'Productive Day, Peter',
