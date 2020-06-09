@@ -89,7 +89,7 @@ class _CreateEditTaskPageState extends State<CreateEditTaskPage> {
                       child: Text(
                         widget.task == null ? 'Add new task' : 'Edit your task',
                         style: TextStyle(
-                            fontSize: 30.0,
+                            fontSize: 28.0,
                             fontWeight: FontWeight.w700,
                             color: LightColors.kWhite),
                       ),
@@ -125,7 +125,7 @@ class _CreateEditTaskPageState extends State<CreateEditTaskPage> {
                 style: TextStyle(
                     color: LightColors.kWhite,
                     fontWeight: FontWeight.w500,
-                    fontSize: 36.0),
+                    fontSize: 32.0),
               ),
               Container(
                 height: 26.0,

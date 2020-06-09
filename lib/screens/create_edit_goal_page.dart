@@ -39,39 +39,6 @@ class _CreateNewTaskPageState extends State<CreateNewTaskPage> {
   GoalStore _goalStore;
   bool isEditing = false;
 
-  var _todos = <Task>[
-    Task(
-        id: 1,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.25),
-    Task(
-        id: 2,
-        name: "Work on Mid-fi Prototype",
-        note: "1 hour progress",
-        loadingPercent: 0.5),
-    Task(
-        id: 3,
-        name: "Write down lecture notes and review",
-        note: "1 hour progress",
-        loadingPercent: 0.3),
-    Task(
-        id: 4,
-        name: "Assignment 2 Physical Prototyping",
-        note: "30 minutes progress",
-        loadingPercent: 0.7),
-    Task(
-        id: 5,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.4),
-    Task(
-        id: 6,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.7),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -156,7 +123,7 @@ class _CreateNewTaskPageState extends State<CreateNewTaskPage> {
                                 ? 'Create new goal'
                                 : 'Edit this goal',
                             style: TextStyle(
-                                fontSize: 30.0,
+                                fontSize: 28.0,
                                 fontWeight: FontWeight.w700,
                                 color: LightColors.kWhite),
                           ),

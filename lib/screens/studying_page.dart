@@ -46,7 +46,7 @@ class _StudyingPageState extends State<StudyingPage> {
   void _updateTime(Timer timer) {
     if (status == TaskStatus.running && position < divisions) {
       setState(() {
-        position = position + 1;
+        position = position + 20;
       });
     } else if (position == divisions) {
       setState(() {

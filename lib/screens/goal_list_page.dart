@@ -69,7 +69,7 @@ class _GoalListPageState extends State<GoalListPage>
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           SizedBox(
-                            height: 50,
+                            height: 40,
                           ),
                           Expanded(
                             key: _backdropKey,
@@ -112,7 +112,7 @@ class _GoalListPageState extends State<GoalListPage>
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(bottom: 32.0),
+                            margin: EdgeInsets.only(bottom: 10.0),
                           ),
                         ],
                       ),

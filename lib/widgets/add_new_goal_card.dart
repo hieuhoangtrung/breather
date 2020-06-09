@@ -41,7 +41,7 @@ class AddNewGoalCard extends StatelessWidget {
                 ),
                 Text(
                   'Add New Goal',
-                  style: TextStyle(color: color),
+                  style: TextStyle(color: color, fontSize: 24.0),
                 ),
               ],
             ),

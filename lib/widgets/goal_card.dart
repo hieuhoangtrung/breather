@@ -15,39 +15,6 @@ class GoalCard extends StatelessWidget {
   final Color color;
   final GoalStore goalStore;
 
-  final _todosMock = <Task>[
-    Task(
-        id: 1,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.25),
-    Task(
-        id: 2,
-        name: "Work on Mid-fi Prototype",
-        note: "1 hour progress",
-        loadingPercent: 0.5),
-    Task(
-        id: 3,
-        name: "Write down lecture notes and review",
-        note: "1 hour progress",
-        loadingPercent: 0.3),
-    Task(
-        id: 4,
-        name: "Assignment 2 Physical Prototyping",
-        note: "30 minutes progress",
-        loadingPercent: 0.7),
-    Task(
-        id: 5,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.4),
-    Task(
-        id: 6,
-        name: "Create Presentation for Weekly Progress",
-        note: "30 minutes progress",
-        loadingPercent: 0.7),
-  ];
-
   GoalCard({this.backdropKey, this.goal, this.color, this.goalStore});
 
   // @override
@@ -108,16 +75,14 @@ class GoalCard extends StatelessWidget {
                                 }),
                           ],
                         ),
-                        // SizedBox(
-                        //   height: 0,
-                        // ),
                         Container(
+                          margin: EdgeInsets.only(bottom: 10.0),
                           child: Hero(
                             tag: 'goal_title_${goal.id}',
                             child: Text(goal.name,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .headline4
+                                    .headline5
                                     .copyWith(color: color)),
                           ),
                         ),
@@ -140,59 +105,57 @@ class GoalCard extends StatelessWidget {
                                 color: ColorUtils.getColorFrom(id: goal.color),
                                 progress: progress.round())),
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 0.0),
-                            child: ListView.builder(
-                              itemBuilder: (BuildContext context, int index) {
-                                if (index == tasks.length) {
-                                  return SizedBox(
-                                    height: 56, // size of FAB
-                                  );
-                                }
-                                var todo = tasks[index];
-                                return Container(
-                                  child: ListTile(
-                                    onTap: () {
-                                      print('Select task');
-                                    },
-                                    contentPadding: EdgeInsets.symmetric(
-                                        horizontal: 0, vertical: 8.0),
-                                    leading: Checkbox(
-                                        onChanged: (value) {
-                                          var task = tasks[index];
-                                          var isCompleted =
-                                              task.isCompleted == 1 ? 0 : 1;
-                                          var updatedTask = task.copy(
-                                              isCompleted: isCompleted);
-                                          goalStore.updateTask(updatedTask);
+                          child: ListView.builder(
+                            padding: EdgeInsets.only(top: 10.0),
+                            itemBuilder: (BuildContext context, int index) {
+                              if (index == tasks.length) {
+                                return SizedBox(
+                                  height: 56, // size of FAB
+                                );
+                              }
+                              var todo = tasks[index];
+                              return Container(
+                                child: ListTile(
+                                  onTap: () {
+                                    print('Select task');
+                                  },
+                                  contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0.0),
+                                  leading: Checkbox(
+                                      onChanged: (value) {
+                                        var task = tasks[index];
+                                        var isCompleted =
+                                            task.isCompleted == 1 ? 0 : 1;
+                                        var updatedTask = task.copy(
+                                            isCompleted: isCompleted);
+                                        goalStore.updateTask(updatedTask);
 
-                                          print('value: $value');
-                                        },
-                                        value: tasks[index].isCompleted == 1),
-                                    trailing: IconButton(
-                                      icon: Icon(Icons.delete_outline),
-                                      onPressed: () =>
-                                          print('On pressed delete'),
-                                    ),
-                                    title: Text(
-                                      todo.name,
-                                      style: TextStyle(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.w600,
-                                        color: tasks[index].isCompleted == 1
-                                            ? LightColors.kGreen
-                                            : Colors.black54,
-                                        decoration:
-                                            tasks[index].isCompleted == 1
-                                                ? TextDecoration.lineThrough
-                                                : TextDecoration.none,
-                                      ),
+                                        print('value: $value');
+                                      },
+                                      value: tasks[index].isCompleted == 1),
+                                  // trailing: IconButton(
+                                  //   icon: Icon(Icons.delete_outline),
+                                  //   onPressed: () =>
+                                  //       print('On pressed delete'),
+                                  // ),
+                                  title: Text(
+                                    todo.name,
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: tasks[index].isCompleted == 1
+                                          ? LightColors.kGreen
+                                          : Colors.black54,
+                                      decoration:
+                                          tasks[index].isCompleted == 1
+                                              ? TextDecoration.lineThrough
+                                              : TextDecoration.none,
                                     ),
                                   ),
-                                );
-                              },
-                              itemCount: tasks.length + 1,
-                            ),
+                                ),
+                              );
+                            },
+                            itemCount: tasks.length + 1,
                           ),
                         ),
                         Row(
