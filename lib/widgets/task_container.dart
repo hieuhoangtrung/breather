@@ -40,7 +40,7 @@ class TaskContainer extends StatelessWidget {
           ),
         ),
         SizedBox(width: 10.0),
-        Expanded(flex: 1, child: Column(
+        Expanded(child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
