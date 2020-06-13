@@ -28,7 +28,6 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   void _startStudying() {
-    print('Start Studying now!');
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => StudyingPage(task: tasks[0])),
